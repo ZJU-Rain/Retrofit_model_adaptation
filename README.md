@@ -32,7 +32,7 @@ bash CodeT5_test.sh
 ```
 If you wish to compute additional metrics, you can directly use the following command:
 ```bash
-python Eval_Metrics.py /output_file_path
+python Eval_Metrics.py --base_dir /output_file_path
 ```
 After running, you will obtain the METEOR, ROUGE-L, and BERTScore for all outputs.
 

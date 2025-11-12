@@ -16,7 +16,7 @@ def clean_line(line):
     parts = line.strip().split(maxsplit=1)
     return parts[1].strip() if len(parts) == 2 and parts[0].isdigit() else line.strip()
 
-# ------------- METEOE -------------
+# ------------- METEOR -------------
 def compute_meteor(base_dir, out_file='meteor_results.txt'):
     results = []
     task_folders = [d for d in os.listdir(base_dir) if os.path.isdir(os.path.join(base_dir, d))]
