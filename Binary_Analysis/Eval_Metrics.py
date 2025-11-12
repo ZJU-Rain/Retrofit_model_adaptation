@@ -5,6 +5,7 @@ from nltk import word_tokenize
 from rouge_score import rouge_scorer
 from bert_score import score
 from tqdm import tqdm
+import argparse
 
 # ------------- NLTK resources -------------
 nltk.download('punkt', quiet=True)
@@ -126,11 +127,13 @@ def compute_bertscore(base_dir, out_file='bertscore_results.txt'):
     print(f'Results written to {os.path.abspath(out_file)}')
 
 # ------------- main -------------
-def main():
-    base_dir = 'output'
+def main(base_dir):
     compute_meteor(base_dir)
     compute_rouge(base_dir)
     compute_bertscore(base_dir)
 
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser(description='Compute metrics for generated text.')
+    parser.add_argument('--base_dir', type=str, default='output', help='Base directory for output files')
+    args = parser.parse_args()
+    main(args.base_dir)
