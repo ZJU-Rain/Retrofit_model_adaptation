@@ -25,7 +25,7 @@ class AllArgs:
     # ---------------- data ----------------
     batch_size: int = 4
 
-    # ---------------- localizer ----------------
+    # ---------------- retrofit ----------------
     loc_epochs: int = 20
     loc_lr: float = 1e6     # last_task_lr = 1e8
     loc_l1: float = 2.0     # last_task_l1 = 1.0
@@ -39,7 +39,7 @@ class AllArgs:
 _DEFAULT_ARGS = AllArgs()
 
 def parse_args() -> AllArgs:
-    parser = argparse.ArgumentParser(description="LoRA-B localization → stitch → export")
+    parser = argparse.ArgumentParser(description="LoRA-B retrofit → merge → export")
 
     # ---------------- paths ----------------
     parser.add_argument("--base_model_path", type=str,
@@ -57,7 +57,7 @@ def parse_args() -> AllArgs:
     parser.add_argument("--batch_size", type=int,
                         default=_DEFAULT_ARGS.batch_size)
 
-    # ---------------- localizer ----------------
+    # ---------------- retrofit ----------------
     parser.add_argument("--loc_epochs", type=int,
                         default=_DEFAULT_ARGS.loc_epochs)
     parser.add_argument("--loc_lr", type=float,
